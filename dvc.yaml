@@ -6,6 +6,9 @@ stages:
     - src/prepare.py
     outs:
     - data/processed
+    params:
+    - random_state
+    - split_ratio
   train:
     cmd: python src/train.py
     deps:
@@ -13,3 +16,6 @@ stages:
     - src/train.py
     outs:
     - model.pkl
+    params:
+    - n_estimators
+    - random_state

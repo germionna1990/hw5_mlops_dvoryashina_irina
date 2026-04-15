@@ -1,10 +1,18 @@
 import pandas as pd
+import yaml
 from pathlib import Path
 from sklearn.model_selection import train_test_split
 
+with open("params.yaml", "r") as f:
+    params = yaml.safe_load(f)
+
 df = pd.read_csv("data/raw/data.csv")
 
-train, test = train_test_split(df, test_size=0.2, random_state=42)
+train, test = train_test_split(
+    df,
+    test_size=params["split_ratio"],
+    random_state=params["random_state"]
+)
 
 Path("data/processed").mkdir(parents=True, exist_ok=True)
 

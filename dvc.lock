@@ -9,8 +9,12 @@ stages:
       size: 2777
     - path: src/prepare.py
       hash: md5
-      md5: df00b185578ad64eaf5e10511dbd895a
-      size: 370
+      md5: eea2d45438e6f63ef069677ca75601a5
+      size: 502
+    params:
+      params.yaml:
+        random_state: 42
+        split_ratio: 0.2
     outs:
     - path: data/processed
       hash: md5
@@ -27,8 +31,12 @@ stages:
       nfiles: 2
     - path: src/train.py
       hash: md5
-      md5: b24d2aa540d5faad537ef08a9a014970
-      size: 368
+      md5: f8d7d9af572db82f100cece6a613d8a6
+      size: 497
+    params:
+      params.yaml:
+        n_estimators: 100
+        random_state: 42
     outs:
     - path: model.pkl
       hash: md5
