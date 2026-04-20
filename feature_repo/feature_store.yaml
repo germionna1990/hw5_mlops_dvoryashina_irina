@@ -1,0 +1,8 @@
+project: iris_feature_store
+provider: local
+registry: registry.db
+
+online_store:
+  path: online_store.db
+
+entity_key_serialization_version: 2
